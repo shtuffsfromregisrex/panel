@@ -1,0 +1,29 @@
+{
+    "sections": [
+        {
+            "id": "section1",
+            "title": "ideas"
+        },
+        {
+            "id": "section2",
+            "title": "projects"
+        },
+        {
+            "id": "section3",
+            "title": "tasks"
+        },
+        {
+            "id": "section4",
+            "title": "motivations"
+        }
+    ],
+    "ideas": [
+        {
+            "id": "idea1",
+            "title": "Idea 1",
+            "htmlContent": "<samp>Content</samp>",
+            "mdContent": "```Content```"
+        
+        }
+    ]
+}
