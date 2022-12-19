@@ -21,8 +21,8 @@
         {
             "id": "idea1",
             "title": "Idea 1",
-            "htmlContent": "<samp>Content</samp>",
-            "mdContent": "```Content```"
+            "htmlContent": "<h4>Hey class</h4> Today, we're going to learn how to type Hello Word using javascript <code>Content</code>",
+            "mdContent": "###Ankara Messi  `Content` </br>  <code>vamos</code>"
         
         }
     ]

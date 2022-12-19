@@ -7,20 +7,28 @@ import Image from "next/image"
 import "react-toastify/dist/ReactToastify.css";
 import CustomLink from "../ui/Link";
 import handlGoogleSignIn from "../utils/fireauth.popup";
+import dynamic from "next/dynamic";
+import snarkdown from "snarkdown";
 
+
+const DynamicFullScreenHandlerwithoutSSR = dynamic(() => import("../hooks/useFullScreen"))
 
 const Home: NextPage = () => {
   const router = useRouter();
   const [password, setPassword] = useState<string>('Password')
 
-  /* eslint-disable  @typescript-eslint/no-explicit-any */
+    /* eslint-disable  @typescript-eslint/no-explicit-any */
   const handleSudmit = (e: any) => {
     if (e.key == 'Enter') {
       loginHandler()
     }
   }
+
+  const md  =  '```Code```  tomorrow'
+  const html  =  snarkdown(md)
+  console.log(html)
   const loginHandler = async () => {
-    fetch('http://localhost:3000/api/login', {
+    fetch('/api/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ password: password })
@@ -29,7 +37,7 @@ const Home: NextPage = () => {
       if (response.status === 200) {
         router.push('/panel')
       } else {
-        toast.error(response.statusText, {
+        toast.error("Incorrect password", {
           theme: "dark"
         })
       }
@@ -42,11 +50,10 @@ const Home: NextPage = () => {
   }
 
   const handleSigninWithGoogle = async () => {
-    
+
     const uid = await handlGoogleSignIn()
     if (uid) {
-
-      fetch('http://localhost:3000/api/loginwithgoogle', {
+      fetch('/api/loginwithgoogle', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ uid: uid })
@@ -54,7 +61,7 @@ const Home: NextPage = () => {
         if (response.status === 200) {
           router.push('/panel')
         } else {
-          toast.error(response.statusText, {
+          toast.error("Incorrect password", {
             theme: "dark"
           })
         }
@@ -75,10 +82,11 @@ const Home: NextPage = () => {
 
   return (
     <>
+    {/* <DynamicFullScreenHandlerwithoutSSR /> */}
       <Head>
         <title>Home</title>
       </Head>
-      <div className="h-screen  flex  items-center justify-center    w-screen bg-black">
+      <div className="h-screen  flex  items-center justify-center    w-screen bg-black" id="planner-container">
         <div className="w-fit h-fit ">
           <ToastContainer />
           <div className=" h-fit  mx-auto  ">
@@ -99,7 +107,7 @@ const Home: NextPage = () => {
               <button
                 className="p-6 rounded-xl flex justify-between items-center bg-[#0F1014]  text-sm"
                 onClick={handleSigninWithGoogle} >
-                <Image src="https://www.vectorlogo.zone/logos/google/google-icon.svg" alt="" className="w-6 h-6 " />
+                <Image src="https://www.vectorlogo.zone/logos/google/google-icon.svg" alt="" className="w-6 h-6 " width={2} height={2} />
               </button>
             </div>
             <samp className="text-center text-sm    mx-auto"> Github  - Twitter</samp>

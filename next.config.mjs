@@ -13,5 +13,14 @@ const config = {
     locales: ["en"],
     defaultLocale: "en",
   },
+  images : {
+    domains : ['www.vectorlogo.zone']
+    // remotePatterns : [
+    //   {
+    //     protocol : "https",
+    //     hostname : "www.vectorlogo.zone"
+    //   }
+    // ]
+  }
 };
 export default config;

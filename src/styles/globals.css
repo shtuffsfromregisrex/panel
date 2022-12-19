@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@font-face {
+    font-family: 'San Francisco';
+    src: url('../fonts/SFUIText-Regular.otf');
+}
+
+*{
+    font-family: 'San Francisco';
+}

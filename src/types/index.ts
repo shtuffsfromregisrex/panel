@@ -20,3 +20,13 @@ export interface PlannerLayoutProps {
     children : ReactNode ,
     setSection : Dispatch<SetStateAction<section>>
 }
+
+
+
+export interface Idea  {
+    id : string ,
+    title : string ,
+    htmlContent : string ,
+    mdContent : string
+
+}

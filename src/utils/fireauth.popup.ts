@@ -6,20 +6,6 @@ import { provider } from './fireauth.provider'
 const auth = getAuth(app);
 
 const handlGoogleSignIn = async () => {
-    // let user: any = null;
-    // signInWithPopup(auth, provider)
-    //     .then((result) => {
-    //         const credential = GoogleAuthProvider.credentialFromResult(result) as OAuthCredential
-    //         const token = credential.accessToken as string
-    //         user = result.user.uid;
-    //     }).catch((error) => {
-    //         const errorCode = error.code;
-    //         const errorMessage = error.message;
-    //         const email = error.customData.email;
-    //         const credential = GoogleAuthProvider.credentialFromError(error);
-    //         // ...
-    //     })
-    // return user;
     try {
 
         const result = await signInWithPopup(auth, provider)
