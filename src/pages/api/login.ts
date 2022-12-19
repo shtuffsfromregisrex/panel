@@ -1,4 +1,4 @@
-import { NextApiRequest, NextApiResponse } from "next";
+import {type NextApiRequest, type NextApiResponse } from "next";
 
 const login = (req: NextApiRequest, res: NextApiResponse) => {
     if (req.method == "POST") {

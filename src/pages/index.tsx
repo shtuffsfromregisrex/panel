@@ -3,6 +3,7 @@ import Head from "next/head";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { toast, ToastContainer } from 'react-toastify';
+import Image from "next/image"
 import "react-toastify/dist/ReactToastify.css";
 import CustomLink from "../ui/Link";
 import handlGoogleSignIn from "../utils/fireauth.popup";
@@ -11,6 +12,8 @@ import handlGoogleSignIn from "../utils/fireauth.popup";
 const Home: NextPage = () => {
   const router = useRouter();
   const [password, setPassword] = useState<string>('Password')
+
+  /* eslint-disable  @typescript-eslint/no-explicit-any */
   const handleSudmit = (e: any) => {
     if (e.key == 'Enter') {
       loginHandler()
@@ -89,13 +92,14 @@ const Home: NextPage = () => {
                 className=" bg-[#0F1014] text-slate-100 px-6 py-6 w-full outline-none rounded-xl placeholder:opacity-40"
                 autoComplete="false"
                 placeholder="Login with password "
+                /* eslint-disable  @typescript-eslint/no-explicit-any */
                 onChange={(e: any) => setPassword(e.target.value.trim())}
                 onKeyDown={handleSudmit}
               />
               <button
                 className="p-6 rounded-xl flex justify-between items-center bg-[#0F1014]  text-sm"
                 onClick={handleSigninWithGoogle} >
-                <img src="https://www.vectorlogo.zone/logos/google/google-icon.svg" alt="" className="w-6 h-6 " />
+                <Image src="https://www.vectorlogo.zone/logos/google/google-icon.svg" alt="" className="w-6 h-6 " />
               </button>
             </div>
             <samp className="text-center text-sm    mx-auto"> Github  - Twitter</samp>

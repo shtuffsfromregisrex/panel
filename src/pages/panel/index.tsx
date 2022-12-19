@@ -1,23 +1,22 @@
-import { NextPage } from "next";
+import { type NextPage } from "next";
 import { useEffect, useState } from "react";
 import PlannerLayout from "../../Layouts/Planner.layout";
 import { useRouter } from "next/router";
-import { section } from "../../types";
+import { type section } from "../../types";
 
 
 const Panel: NextPage = () => {
 
-
     const router = useRouter();
-
+    
+    
     const [section, setSection] = useState<section>("ideas")
     useEffect(() => {
         router.push({
             pathname: '/panel',
             query: { section: section },
         })
-        // router.query[section] = section
-    }, [section])
+    }, [section,router])
     return (
         <PlannerLayout current_section={section} setSection={setSection}>
             {

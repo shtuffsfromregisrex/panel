@@ -1,15 +1,14 @@
-import { FC } from 'react'
-import useRouter from 'next/router'
-import { CustomLinkProps } from '../types'
+import { type FC } from 'react'
+import { type CustomLinkProps } from '../types'
 
 /**
  * 
  * @param props { CustomLinkProps }
  * 
  */
-const CustomLink: FC<CustomLinkProps> = ({ url, underline, title }: CustomLinkProps) => {
+const CustomLink: FC<CustomLinkProps> = ({ url, title }: CustomLinkProps) => {
     return ( 
-            <a href={url} target="_blank" className="hover:decoration-dashed hover:underline duration-50">{title}</a>
+            <a href={url} target="_blank" rel="noopener noreferrer" className="hover:decoration-dashed hover:underline duration-50">{title}</a>
     )
 
 }
