@@ -1,6 +1,6 @@
-import { FC } from 'react'
+import { type FC } from 'react'
 import data from '../cms/cms.json'
-import { PlannerLayoutProps, Section, section } from "../types"
+import { type PlannerLayoutProps, type Section, type section } from "../types"
 
 const PlannerLayout: FC<PlannerLayoutProps> = ({ current_section, children, setSection }: PlannerLayoutProps) => {
     const sections: Section[] = data.sections;

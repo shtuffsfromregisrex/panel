@@ -1,4 +1,4 @@
-import { FC , useEffect } from "react";
+import { type FC , useEffect } from "react";
 
 interface IdeaCardProps {
     id: string,
@@ -6,19 +6,26 @@ interface IdeaCardProps {
     htmlContent: string,
     mdContent: string,
 }
-const Idea: FC<IdeaCardProps> = ({ id, title, htmlContent, mdContent }: IdeaCardProps) => {
+const Idea: FC<IdeaCardProps> = ({ title, htmlContent }: IdeaCardProps) => {
 
-    const handleHtmlContent = () => {
-        const htmlContentContainer = document.getElementById("html_content_container");
-        if (htmlContentContainer) {
-            htmlContentContainer.innerHTML = htmlContent;
-        }
-    }
+
+
+    // // Just for successive builds
+    // const handleDelete = () => {
+    //     console.log("deleted", id , mdContent)
+    // }
 
     useEffect(() => {
+        const handleHtmlContent = () => {
+            const htmlContentContainer = document.getElementById("html_content_container");
+            if (htmlContentContainer) {
+                htmlContentContainer.innerHTML = htmlContent;
+            }
+        }
+
         handleHtmlContent();
-    }, [])
-    
+    }, [htmlContent])
+
     return (
         <div className="w-full p-4 rounded-md bg-[#] border-[#0F1014]">
             <span className="font-bold"> {title}</span>
@@ -28,3 +35,5 @@ const Idea: FC<IdeaCardProps> = ({ id, title, htmlContent, mdContent }: IdeaCard
         </div>
     )
 }
+
+export default Idea
