@@ -19,10 +19,10 @@
     ],
     "ideas": [
         {
-            "id": "idea1",
+            "id": "idea1 ",
             "title": "Idea 1",
             "htmlContent": "<h4>Hey class</h4> Today, we're going to learn how to type Hello Word using javascript <code>Content</code>",
-            "mdContent": "###Ankara Messi  `Content` </br>  <code>vamos</code>"
+            "mdContent": "###Ankara Messi  `Content` </br>  <code>vamos</code>, Why can't there be another way for creating valuable modules or libraries for quick and well web develoment? \n - More money  - More people"
         
         }
     ]

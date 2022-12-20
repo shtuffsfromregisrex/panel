@@ -18,15 +18,20 @@ export type section = "ideas" | "projects" | "tasks" | "motivations" ;
 export interface PlannerLayoutProps {
     current_section : string
     children : ReactNode ,
-    setSection : Dispatch<SetStateAction<section>>
+    useSetSection : (arg0 : section) => void ;
+    fullPreview : boolean ,
+    setFullPreview : Dispatch<SetStateAction<boolean>>
 }
 
 
 
-export interface Idea  {
+export interface IdeaProps  {
     id : string ,
     title : string ,
     htmlContent : string ,
-    mdContent : string
-
+    mdContent : string,
+    createdAt? : Date ,
+    updatedAt? : Date ,
+    fullPreview? : boolean ,
+    setFullPreview? : Dispatch<SetStateAction<boolean>>
 }
