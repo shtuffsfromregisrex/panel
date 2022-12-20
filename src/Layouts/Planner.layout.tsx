@@ -4,9 +4,9 @@ import { type PlannerLayoutProps, type Section, type section } from "../types"
 
 const PlannerLayout: FC<PlannerLayoutProps> = ({ fullPreview, setFullPreview, current_section, children, useSetSection }: PlannerLayoutProps) => {
     const sections: Section[] = data.sections;
-
+    const sectioner = useSetSection
     const handleSection = (section: section) => {
-        useSetSection(section)
+        sectioner(section)
     }
 
     const handleSetFullPreview = () => {
@@ -23,7 +23,6 @@ const PlannerLayout: FC<PlannerLayoutProps> = ({ fullPreview, setFullPreview, cu
 
                         <div className="w-full  p-4 rounded-md bg-[#0F1014] text-white text-opacity-80">
                             <div className="flex items-center">
-
                                 <input type={'text'} value={"ideaTitle"} className="font-bold bg-transparent w-full p-2 border outline-none border-white  border-opacity-0 focus:border-opacity-5 rounded" onChange={(e) => console.log(e.target.value)} />
                                 {
                                     // showDelBtn &&

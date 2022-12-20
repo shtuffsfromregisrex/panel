@@ -11,7 +11,6 @@ import snarkdown from "snarkdown";
 
 
 const Panel: NextPage = ({ ideasFromFirestore }: any) => {
-    console.log(ideasFromFirestore)
     const ideas: IdeaProps[] = data.ideas
     const router = useRouter();
     const [section, setSection] = useState<section>("ideas")
@@ -50,12 +49,20 @@ const Panel: NextPage = ({ ideasFromFirestore }: any) => {
                 section == "ideas" &&
                 <div>
                     {
-                        ideasFromFirestore.length != 0 &&
-                        <div className="grid xl:grid-cols-3 gap-4 xs:grid-cols-1 msm:grid-cols-1">
+                        ideasFromFirestore.length != 0  ? (
+
+                            <div className="grid xl:grid-cols-3 gap-4 xs:grid-cols-1 msm:grid-cols-1">
                             {
                                 ideasFromFirestore.map((idea: any) => (<IdeaComponent key={idea.id} id={idea.id} htmlContent={idea.htmlContent} mdContent={idea.mdContent} title={idea.title} setFullPreview={setFullPreview} fullPreview={fullPreview} />))
                             }
                         </div>
+                            ) : ( 
+                                <div className="flex items-center justify-center">
+                                    <h1 className="text-xl text-neutral-700 text-center">Empty</h1>
+                                    <p className="text-neutral-800 text-center">No ideas yet, or it&apos;s a network problem </p>
+
+                                </div>
+                            )
                     }
                 </div>
             }
