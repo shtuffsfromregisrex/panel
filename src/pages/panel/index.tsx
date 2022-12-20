@@ -6,15 +6,15 @@ import { type Idea, type section } from "../../types";
 import data from '../../cms/cms.json'
 import IdeaComponent from "../../ui/Idea.component";
 const Panel: NextPage = () => {
-    const router = useRouter();
     const ideas  : Idea[]   = data.ideas
+    const router = useRouter();
     const [section, setSection] = useState<section>("ideas")
     useEffect(() => {
         router.push({
             pathname: '/panel',
             query: { section: section },
         })
-    }, [section,router])
+    }, [section])
     return (
         <PlannerLayout current_section={section} setSection={setSection}>
             {
