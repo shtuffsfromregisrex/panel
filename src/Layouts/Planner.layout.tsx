@@ -61,7 +61,7 @@ const PlannerLayout: FC<PlannerLayoutProps> = ({ fullPreview, setFullPreview, cu
                                 })
                             }
                         </div>
-                        <button className="py-3 px-10 text-[#0075FF]  bg-[#0075FF] bg-opacity-20 hover:bg-opacity-30 rounded-md ">New </button>
+                        {/* <button className="py-3 px-10 text-[#0075FF]  bg-[#0075FF] bg-opacity-5 hover:bg-opacity-25 rounded-md ">New </button> */}
                     </div>
 
 
