@@ -1,0 +1,82 @@
+[debug] [2022-12-27T07:12:00.403Z] ----------------------------------------------------------------------
+[debug] [2022-12-27T07:12:00.405Z] Command:       /home/ndhwr/.nvm/versions/node/v19.2.0/bin/node /home/ndhwr/.nvm/versions/node/v19.2.0/bin/firebase init
+[debug] [2022-12-27T07:12:00.406Z] CLI Version:   11.19.0
+[debug] [2022-12-27T07:12:00.407Z] Platform:      linux
+[debug] [2022-12-27T07:12:00.407Z] Node Version:  v19.2.0
+[debug] [2022-12-27T07:12:00.407Z] Time:          Tue Dec 27 2022 09:12:00 GMT+0200 (Central Africa Time)
+[debug] [2022-12-27T07:12:00.407Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-12-27T07:12:00.414Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-12-27T07:12:00.414Z] > authorizing via signed-in user (ndizihiweregis06@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /home/ndhwr/Documents/GitHub/panel
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2022-12-27T07:12:27.806Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2022-12-27T07:12:31.497Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2022-12-27T07:12:31.497Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] i  Using project control-panel-5bb3e (control-panel) 
+[info] 
+=== Database Setup
+[info] i  database: ensuring required API firebasedatabase.googleapis.com is enabled... 
+[debug] [2022-12-27T07:12:32.670Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/control-panel-5bb3e/services/firebasedatabase.googleapis.com [none]
+[debug] [2022-12-27T07:12:32.670Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/control-panel-5bb3e/services/firebasedatabase.googleapis.com x-goog-quota-user=projects/control-panel-5bb3e
+[debug] [2022-12-27T07:12:35.995Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/control-panel-5bb3e/services/firebasedatabase.googleapis.com 200
+[debug] [2022-12-27T07:12:35.995Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/control-panel-5bb3e/services/firebasedatabase.googleapis.com [omitted]
+[info] ✔  database: required API firebasedatabase.googleapis.com is enabled 
+[info] 
+[debug] [2022-12-27T07:12:35.997Z] >>> [apiv2][query] GET https://firebasedatabase.googleapis.com/v1beta/projects/control-panel-5bb3e/locations/-/instances/control-panel-5bb3e-default-rtdb [none]
+[debug] [2022-12-27T07:12:38.246Z] <<< [apiv2][status] GET https://firebasedatabase.googleapis.com/v1beta/projects/control-panel-5bb3e/locations/-/instances/control-panel-5bb3e-default-rtdb 200
+[debug] [2022-12-27T07:12:38.246Z] <<< [apiv2][body] GET https://firebasedatabase.googleapis.com/v1beta/projects/control-panel-5bb3e/locations/-/instances/control-panel-5bb3e-default-rtdb {"name":"projects/1083270693196/locations/us-central1/instances/control-panel-5bb3e-default-rtdb","project":"projects/1083270693196","databaseUrl":"https://control-panel-5bb3e-default-rtdb.firebaseio.com","type":"DEFAULT_DATABASE","state":"ACTIVE"}
+[info] 
+[info] Firebase Realtime Database Security Rules allow you to define how your data should be
+[info] structured and when your data can be read from and written to.
+[info] 
+[debug] [2022-12-27T07:12:42.361Z] >>> [apiv2][query] GET https://control-panel-5bb3e-default-rtdb.firebaseio.com/.settings/rules.json [none]
+[debug] [2022-12-27T07:12:44.184Z] <<< [apiv2][status] GET https://control-panel-5bb3e-default-rtdb.firebaseio.com/.settings/rules.json 200
+[debug] [2022-12-27T07:12:44.184Z] <<< [apiv2][body] GET https://control-panel-5bb3e-default-rtdb.firebaseio.com/.settings/rules.json [stream]
+[info] ✔  Database Rules for control-panel-5bb3e-default-rtdb have been written to database.rules.json. 
+[info] Future modifications to database.rules.json will update Realtime Database Security Rules when you run
+[info] firebase deploy.
+[info] 
+=== Storage Setup
+[info] 
+[info] Firebase Storage Security Rules allow you to define how and when to allow
+[info] uploads and downloads. You can keep these rules in your project directory
+[info] and publish them with firebase deploy.
+[info] 
+[info] ✔  Wrote storage.rules 
+[info] 
+=== Emulators Setup
+[info] i  firestore: downloading cloud-firestore-emulator-v1.15.1.jar... {"metadata":{"emulator":{"name":"firestore"},"message":"downloading cloud-firestore-emulator-v1.15.1.jar..."}}
+[debug] [2022-12-27T07:13:20.464Z] >>> [apiv2][query] GET https://storage.googleapis.com/firebase-preview-drop/emulator/cloud-firestore-emulator-v1.15.1.jar 
+[debug] [2022-12-27T07:13:23.425Z] <<< [apiv2][status] GET https://storage.googleapis.com/firebase-preview-drop/emulator/cloud-firestore-emulator-v1.15.1.jar 200
+[debug] [2022-12-27T07:13:23.425Z] <<< [apiv2][body] GET https://storage.googleapis.com/firebase-preview-drop/emulator/cloud-firestore-emulator-v1.15.1.jar [stream]
+[info] i  database: downloading firebase-database-emulator-v4.11.0.jar... {"metadata":{"emulator":{"name":"database"},"message":"downloading firebase-database-emulator-v4.11.0.jar..."}}
+[debug] [2022-12-27T07:16:11.484Z] >>> [apiv2][query] GET https://storage.googleapis.com/firebase-preview-drop/emulator/firebase-database-emulator-v4.11.0.jar 
+[debug] [2022-12-27T07:16:12.858Z] <<< [apiv2][status] GET https://storage.googleapis.com/firebase-preview-drop/emulator/firebase-database-emulator-v4.11.0.jar 200
+[debug] [2022-12-27T07:16:12.858Z] <<< [apiv2][body] GET https://storage.googleapis.com/firebase-preview-drop/emulator/firebase-database-emulator-v4.11.0.jar [stream]
+[info] i  storage: downloading cloud-storage-rules-runtime-v1.1.2.jar... {"metadata":{"emulator":{"name":"storage"},"message":"downloading cloud-storage-rules-runtime-v1.1.2.jar..."}}
+[debug] [2022-12-27T07:18:12.215Z] >>> [apiv2][query] GET https://storage.googleapis.com/firebase-preview-drop/emulator/cloud-storage-rules-runtime-v1.1.2.jar 
+[debug] [2022-12-27T07:18:13.778Z] <<< [apiv2][status] GET https://storage.googleapis.com/firebase-preview-drop/emulator/cloud-storage-rules-runtime-v1.1.2.jar 200
+[debug] [2022-12-27T07:18:13.778Z] <<< [apiv2][body] GET https://storage.googleapis.com/firebase-preview-drop/emulator/cloud-storage-rules-runtime-v1.1.2.jar [stream]
+[info] i  ui: downloading ui-v1.11.1.zip... {"metadata":{"emulator":{"name":"ui"},"message":"downloading ui-v1.11.1.zip..."}}
+[debug] [2022-12-27T07:19:42.730Z] >>> [apiv2][query] GET https://storage.googleapis.com/firebase-preview-drop/emulator/ui-v1.11.1.zip 
+[info] 
+=== Remoteconfig Setup
+[debug] [2022-12-27T07:19:43.080Z] <<< [apiv2][status] GET https://storage.googleapis.com/firebase-preview-drop/emulator/ui-v1.11.1.zip 200
+[debug] [2022-12-27T07:19:43.080Z] <<< [apiv2][body] GET https://storage.googleapis.com/firebase-preview-drop/emulator/ui-v1.11.1.zip [stream]

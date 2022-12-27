@@ -6,7 +6,7 @@ interface ContentEditableDivTarget<T> extends EventTarget {
     textContent: T,
 }
 
-const Idea: FC<IdeaProps> = ({ id, title, mdContent ,setFullPreview ,fullPreview }: IdeaProps) => {
+const Idea: FC<IdeaProps> = ({ id, title, mdContent ,setFullPreview ,fullPreview  , htmlContent }: IdeaProps) => {
     const [showDelBtn, setShowDelBtn] = useState<boolean>(false)
     const [ideaTitle, setIdeaTitle] = useState<string>(title)
     useEffect(() => {
@@ -28,7 +28,7 @@ const Idea: FC<IdeaProps> = ({ id, title, mdContent ,setFullPreview ,fullPreview
     }
 
     return (
-        <div className="w-full  p-4 rounded-md bg-neutral-800 bg-opacity-20 text-white text-opacity-60" onMouseOver={() => setShowDelBtn(true)} onMouseLeave={()=>setShowDelBtn(false)} onClick={handleSetFullIdeasPreview}>
+        <div className="w-full  p-4 rounded-md bg-neutral-800 bg-opacity-20 text-white text-opacity-60" onMouseOver={() => setShowDelBtn(true)} onMouseLeave={()=>setShowDelBtn(false)}>
             <div className="flex items-center">
 
                 <input type={'text'} value={ideaTitle} className="font-bold bg-transparent w-full p-2 border outline-none border-white  border-opacity-0 focus:border-opacity-5 rounded " onChange={(e) => setIdeaTitle(e.target.value)} />
@@ -39,7 +39,7 @@ const Idea: FC<IdeaProps> = ({ id, title, mdContent ,setFullPreview ,fullPreview
             </div>
             <hr className="border-b border-[#0F1014] my-2" />
             {/* <p id="html_content_container"> */}
-            <div contentEditable id="html_content_container" className="border border-opacity-0 border-white outline-none focus:border-opacity-5 rounded-md p-2" onInput={(e) => console.log((e.target as ContentEditableDivTarget<string>).textContent)} onChange={(e) => console.log(e.target)}  dangerouslySetInnerHTML={{__html :snarkdown(mdContent)}}/>
+            <div contentEditable id="html_content_container" className="border border-opacity-0 border-white outline-none focus:border-opacity-5 rounded-md p-2" onInput={(e) => console.log((e.target as ContentEditableDivTarget<string>).textContent)} onChange={(e) => console.log(e.target)}  dangerouslySetInnerHTML={{__html : snarkdown(mdContent) }}/>
             {/* </p> */}
         </div>
     )
