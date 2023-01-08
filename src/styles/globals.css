@@ -3,11 +3,23 @@
 @tailwind utilities;
 
 
-@font-face {
+/* @font-face {
     font-family: 'San Francisco';
     src: url('../fonts/SFUIText-Regular.otf');
 }
 
-*{
-    font-family: 'San Francisco';
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/Inter-VariableFont_slnt\,wght.ttf');
 }
+
+
+.black-text{
+    font-weight: bolder;
+} */
+
+/* *{
+    font-family: sans-serif;
+}
+
+ */

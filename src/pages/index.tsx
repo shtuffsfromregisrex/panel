@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import { toast, ToastContainer } from 'react-toastify';
 import Image from "next/image"
 import "react-toastify/dist/ReactToastify.css";
-import CustomLink from "../ui/Link";
+import CustomLink from "../components/Link";
 import handlGoogleSignIn from "../utils/fireauth.popup";
 import dynamic from "next/dynamic";
 import snarkdown from "snarkdown";
@@ -90,7 +90,7 @@ const Home: NextPage = () => {
         <div className="w-fit h-fit ">
           <ToastContainer />
           <div className=" h-fit  mx-auto  ">
-            <h1 className="text-8xl text-center  mx-auto font-extrabold text-transparent  bg-clip-text bg-gradient-to-b from-white via-[#9197A2]  to-black">Planner app <br /> ndzhwr</h1> <br />
+            <h1 className="text-8xl text-center  mx-auto font-black text-transparent black-te bg-clip-text bg-gradient-to-b from-white via-[#9197A2]  to-black">Planner app <br /> ndzhwr</h1> <br />
             <p className="text-center  text-[#9197A2]">A planner app for ndzhwr  -  just useless for you, all what you can do is to star it on <CustomLink url="https://github.com/ndzhwr" title="Github" underline /></p>
             <div className="w-full flex gap-2  h-fit w-fititems-center mt-10">
               <input

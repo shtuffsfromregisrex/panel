@@ -1,5 +1,5 @@
 import { type FC } from 'react'
-import { type CustomLinkProps } from '../types'
+import { type CustomLinkProps } from '../types/types'
 
 /**
  * 

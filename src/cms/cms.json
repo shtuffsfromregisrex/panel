@@ -1,34 +1,54 @@
 {
-    "sections": [
-        {
-            "id": "section1",
-            "title": "ideas"
-        },
-        {
-            "id": "section2",
-            "title": "projects"
-        },
-        {
-            "id": "section3",
-            "title": "tasks"
-        },
-        {
-            "id": "section4",
-            "title": "motivations"
-        }
-    ],
-    "ideas": [
-        {
-            "id": "idea1 ",
-            "title": "Idea 1",
-            "htmlContent": "<h4>Hey class</h4> Today, we're going to learn how to type Hello Word using javascript <code>Content</code>",
-            "mdContent": "###Ankara Messi  `Content` <br> /n      <code>vamos</code>, Why can't there be another way for creating valuable modules or libraries for quick and well web develoment? \n - More money  - More people"
-        },
-        {
-            "id": "idea2 ",
-            "title": "Idea 2",
-            "htmlContent": "<h4>Hey class</h4> Today, we're going to learn how to type Hello Word using javascript <code>Content</code>",
-            "mdContent": "###Ankara Messi  `Content` <br>  <code>vamos</code>, Why can't there be another way for creating valuable modules or libraries for quick and well web develoment? \n - More money  - More people"
-        }
-    ]
+  "sections": [
+    {
+      "id": "section1",
+      "title": "ideas"
+    },
+    {
+      "id": "section2",
+      "title": "projects"
+    },
+    {
+      "id": "section3",
+      "title": "tasks"
+    }
+  ],
+  "ideas": [
+    {
+      "id": "idea1 ",
+      "title": "Idea 1",
+      "htmlContent": "<h4>Hey class</h4> Today, we're going to learn how to type Hello Word using javascript <code>Content</code>",
+      "mdContent": "###Ankara Messi  `Content` <br> /n      <code>vamos</code>, Why can't there be another way for creating valuable modules or libraries for quick and well web develoment? \n - More money  - More people"
+    },
+    {
+      "id": "idea2 ",
+      "title": "Idea 2",
+      "htmlContent": "<h4>Hey class</h4> Today, we're going to learn how to type Hello Word using javascript <code>Content</code>",
+      "mdContent": "###Ankara Messi  `Content` <br>  <code>vamos</code>, Why can't there be another way for creating valuable modules or libraries for quick and well web develoment? \n - More money  - More people"
+    }
+  ],
+  "projects": [
+    {
+      "id": "prj1",
+      "name": "Panel",
+      "description": "A simple control panel app that is just useful",
+      "about": "A simple or medium sized panel that aims to help people track their tasks and projects even ideas",
+      "kanban": "https://linkto.kanban",
+      "progress": "90"
+    },
+    {
+      "id": "prj2",
+      "name": "kanban",
+      "description": "A kanban board",
+      "about": "A simple or medium sized panel that aims to help people track their tasks and projects even ideas",
+      "kanban": "https://linkto.kanban",
+      "progress": "90"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "tsk1",
+      "task": "Create the getData api in jsondb"
+    }
+  ]
 }

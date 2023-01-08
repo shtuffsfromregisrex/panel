@@ -35,3 +35,12 @@ export interface IdeaProps  {
     fullPreview? : boolean ,
     setFullPreview? : Dispatch<SetStateAction<boolean>>
 }
+
+export interface SectionHeaderProps {
+    section  : section ,
+    action? : () => void
+}
+
+export interface ContentEditableDivTarget<T> extends EventTarget {
+    textContent: T,
+}
