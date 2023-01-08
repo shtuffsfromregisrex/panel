@@ -9,6 +9,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { firebase } from "../../utils/firestore";
 import SectionHeader from "../../components/sectionHeader";
 const IdeaComponent = dynamic(() => import("../../components/ideaComponent"), { ssr: false });
+
 const Panel: NextPage = ({ ideasFromFirestore }: any) => {
     const router = useRouter();
     const [section, setSection] = useState<section>("ideas")
@@ -23,8 +24,7 @@ const Panel: NextPage = ({ ideasFromFirestore }: any) => {
             shouldChangeUrlParam.current = (!shouldChangeUrlParam.current)
         }
     }, [section, router])
-    console.log(ideasFromFirestore)
-    const handleTryReload = () => document.location.reload();
+    const handleTryReload = () => document.location.href = "/panel"
     const useSetSection = (section: section) => {
         shouldChangeUrlParam.current = true
         setSection(section);
@@ -32,9 +32,9 @@ const Panel: NextPage = ({ ideasFromFirestore }: any) => {
     return (
         <PlannerLayout current_section={section} useSetSection={useSetSection} fullPreview={fullPreview} setFullPreview={setFullPreview}>
 
+            <SectionHeader section={section} />
             <div>{ideasFromFirestore.ideas.length != 0 ? (
                 <>
-                    <SectionHeader section={section} />
                     <div className="grid xl:grid-cols-3 gap-4 xs:grid-cols-1 msm:grid-cols-1">
                         {
                             ideasFromFirestore.ideas.map((idea: any) => (<IdeaComponent key={idea.id} id={idea.id} htmlContent={idea.htmlContent} mdContent={idea.mdContent} title={idea.title} setFullPreview={setFullPreview} fullPreview={fullPreview} />))
@@ -43,9 +43,9 @@ const Panel: NextPage = ({ ideasFromFirestore }: any) => {
                 </>
             ) : (
                 <div className="flex flex-col items-center justify-center">
-                    <h1 className="text-xl  w-full text-neutral-700 text-center">Empty</h1>
+                    <h1 className="text-xl  w-full text text-center">Empty</h1>
                     <p className="text-neutral-800 text-center">No ideas yet, or it&apos;s a network problem </p>
-                    <button className="text-neutral-700 bg-neutral-700 bg-opacity-20 px-4 py-2 rounded-md mt-4 hover:bg-opacity-25" onClick={handleTryReload}>Try reload</button>
+                    <button className="text-black bg-white  px-4 py-2 rounded-md mt-4 hover:bg-opacity-90" onClick={handleTryReload}>Try reload</button>
                 </div>
             )
             }</div>
@@ -77,6 +77,7 @@ export async function getServerSideProps() {
         tskfire.forEach((doc) => {
             data.tasks.push(doc.data())
         });
+        console.log(data.ideas)
         return { props: { ideasFromFirestore : data } }
     } catch (error : any) {
         console.log(error )

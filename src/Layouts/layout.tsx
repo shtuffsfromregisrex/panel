@@ -36,12 +36,12 @@ const PlannerLayout: FC<PlannerLayoutProps> = ({ fullPreview, setFullPreview, cu
                 </div>
             }
 
-            <div className=" bg-black text-sm msm:px-1 sm:px-44  min-h-screen text-[#9197A2] relative">
+            <div className=" bg-black text-sm msm:px-1 sm:px-44  min-h-screen text-[#9197A2] relative ">
                 <div className="sticky top-0 bg-black bg-opacity-50 backdrop-blur">
                     <div className="head  py-10 flex justify-between items-center" >
                         <span className="text-white font-bold">✋ Good morning , ndzhwr</span>
                         <div className="flex items-center gap-2">
-                            <div className="w-6 h-6 bg-gradient-to-b from-[#9A0000] rounded-full to-[#0075FF]" /> <span className="text-white" > @ndzhwr</span>
+                            <div className="w-6 h-6 bg-gradient-to-b from-[#8e8e0c] rounded-full to-[#e7ed38]" /> <span className="text-white" > @ndzhwr</span>
                         </div>
                     </div>
                     <div className="navigator  w-full border-b  border-[#0F1014] flex  items-center justify-between">
@@ -52,7 +52,7 @@ const PlannerLayout: FC<PlannerLayoutProps> = ({ fullPreview, setFullPreview, cu
                                         <button
                                             key={section.id}
                                             onClick={() => handleSection(section.title as section)}
-                                            className={`cursor-pointer py-3 capitalize border-b  border-white  break-keep border-opacity-0 px-4 ${current_section.toLowerCase() == section.title.toLowerCase() && " text-blue-500 font-bold  border-blue-500 border-opacity-100 "}`}>
+                                            className={`cursor-pointer py-3 capitalize border-b  border-white  break-keep border-opacity-0 px-4 ${current_section.toLowerCase() == section.title.toLowerCase() && " text-blue-500   border-blue-500 border-opacity-100 "}`}>
                                             {section.title}
                                         </button>
                                     )
