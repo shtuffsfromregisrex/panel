@@ -10,7 +10,7 @@ updates:
     schedule:
       interval: "weekly"
     commit-message:
-      prefix: "[yarn]: "
+      prefix: [depandabot]: "
     ignore:
       - dependency-name: "next"
       - dependency-name: "react"
