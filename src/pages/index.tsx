@@ -1,6 +1,6 @@
 import { type NextPage } from "next";
 import Head from "next/head";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { toast, ToastContainer } from 'react-toastify';
 import Image from "next/image"
@@ -8,33 +8,41 @@ import "react-toastify/dist/ReactToastify.css";
 import CustomLink from "../components/Link";
 import handlGoogleSignIn from "../utils/fireauth.popup";
 import dynamic from "next/dynamic";
-import snarkdown from "snarkdown";
 
-
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const DynamicFullScreenHandlerwithoutSSR = dynamic(() => import("../hooks/useFullScreen"))
 
 const Home: NextPage = () => {
+  const getTokenFromCookie = (): string => document.cookie.split(";").map(cooky => cooky.trim()).find(cooky => cooky.startsWith("_token=")) as string
+
   const router = useRouter();
   const [password, setPassword] = useState<string>('Password')
-
-    /* eslint-disable  @typescript-eslint/no-explicit-any */
+  /* eslint-disable  @typescript-eslint/no-explicit-any */
   const handleSudmit = (e: any) => {
     if (e.key == 'Enter') {
       loginHandler()
     }
   }
 
-  const md  =  '```Code```  tomorrow'
-  const html  =  snarkdown(md)
-  console.log(html)
+  useEffect(() => {
+    const token: string = getTokenFromCookie();
+    if (token) {
+      router.push('/panel')
+    }
+  }, [router])
+
+
+  const setTokenToCookie = (token: string) => document.cookie = `_token=${token}`
+
   const loginHandler = async () => {
     fetch('/api/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ password: password })
-    }).then((response) => {
-
+    }).then(async (response) => {
       if (response.status === 200) {
+        const data = await response.json()
+        setTokenToCookie(data.token)
         router.push('/panel')
       } else {
         toast.error("Incorrect password", {
@@ -82,15 +90,19 @@ const Home: NextPage = () => {
 
   return (
     <>
-    {/* <DynamicFullScreenHandlerwithoutSSR /> */}
+      {/* <DynamicFullScreenHandlerwithoutSSR /> */}
       <Head>
         <title>Home</title>
       </Head>
       <div className="h-screen  flex  items-center justify-center    w-screen bg-black" id="planner-container">
         <div className="w-fit h-fit ">
           <ToastContainer />
-          <div className=" h-fit  mx-auto  ">
-            <h1 className="text-8xl text-center  mx-auto font-black text-transparent black-te bg-clip-text bg-gradient-to-bl from-[#de2828] via-[#1266d4]  to-[#cf0dff]">Planner app <br /> ndzhwr</h1> <br />
+          <div className=" h-fit  mx-auto px-6 ">
+            <h1
+              className="msm:text-4xl md:text-8xl text-center  mx-auto font-black text-transparent black-te bg-clip-text bg-gradient-to-bl from-[#de2828] via-[#1266d4]  to-[#cf0dff]">
+              Planner app <br />
+              ndzhwr
+            </h1> <br />
             <p className="text-center  text-[#9197A2]">A planner app for ndzhwr  -  just useless for you, all what you can do is to star it on <CustomLink url="https://github.com/ndzhwr" title="Github" underline /></p>
             <div className="w-full flex gap-2  h-fit w-fititems-center mt-10">
               <input

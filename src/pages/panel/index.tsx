@@ -8,13 +8,15 @@ import dataFromCms from '../../cms/cms.json'
 import { collection, getDocs } from "firebase/firestore";
 import { firebase } from "../../utils/firestore";
 import SectionHeader from "../../components/sectionHeader";
-const IdeaComponent = dynamic(() => import("../../components/ideaComponent"), { ssr: false });
+import  IdeaComponent from "../../components/ideaComponent" ;
+const CheckLoginStateComponentWithoutSsr = dynamic(() => import("../../components/CheckLoginState"), { ssr: false });
 
 const Panel: NextPage = ({ ideasFromFirestore }: any) => {
     const router = useRouter();
     const [section, setSection] = useState<section>("ideas")
     const [fullPreview, setFullPreview] = useState<boolean>(false)
     const shouldChangeUrlParam = useRef(false)
+    
     useEffect(() => {
         if (shouldChangeUrlParam.current === true) {
             router.push({
@@ -29,9 +31,10 @@ const Panel: NextPage = ({ ideasFromFirestore }: any) => {
         shouldChangeUrlParam.current = true
         setSection(section);
     }
+   
     return (
         <PlannerLayout current_section={section} useSetSection={useSetSection} fullPreview={fullPreview} setFullPreview={setFullPreview}>
-
+            <CheckLoginStateComponentWithoutSsr />
             <SectionHeader section={section} />
             <div>{ideasFromFirestore.ideas.length != 0 ? (
                 <>
@@ -77,11 +80,10 @@ export async function getServerSideProps() {
         tskfire.forEach((doc) => {
             data.tasks.push(doc.data())
         });
-        console.log(data.ideas)
-        return { props: { ideasFromFirestore : data } }
-    } catch (error : any) {
-        console.log(error )
-        return  { props  : { ideasFromFiresrore : dataFromCms}}
+        return { props: { ideasFromFirestore: data } }
+    } catch (error: any) {
+        console.log(error)
+        return { props: { ideasFromFiresrore: dataFromCms } }
     }
 
 }
