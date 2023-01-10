@@ -8,7 +8,7 @@ const Idea: FC<IdeaProps> = ({ id, title, mdContent, setFullPreview, fullPreview
     const [showDelBtn, setShowDelBtn] = useState<boolean>(false)
     const [ideaTitle, setIdeaTitle] = useState<string>(title)
     useEffect(() => {
-        const handleHtmlContent = () => {
+        (function () {
             const htmlContentContainer = document.getElementById("html_content_container");
             if (htmlContentContainer) {
                 htmlContentContainer.innerHTML = snarkdown(mdContent);
@@ -16,12 +16,12 @@ const Idea: FC<IdeaProps> = ({ id, title, mdContent, setFullPreview, fullPreview
                 console.warn("htmlContentContainer is null");
 
             }
-        }
-        handleHtmlContent();
-    }, [mdContent])
+        }())
+    },[mdContent])
+
     return (
         <div
-            className="w-full  p-4 rounded-md bg-neutral-500 bg-opacity-20 text-white "
+            className="w-full  p-4 rounded-md border border-neutral-800 bg-opacity-20 text-white "
             onMouseOver={() => setShowDelBtn(true)}
             onMouseLeave={() => setShowDelBtn(false)}
         >
