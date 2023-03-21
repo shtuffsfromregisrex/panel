@@ -17,6 +17,7 @@ const Home: NextPage = () => {
 
   const router = useRouter();
   const [password, setPassword] = useState<string>('Password')
+  const [loading, setLoading] = useState<boolean>(false)
   /* eslint-disable  @typescript-eslint/no-explicit-any */
   const handleSudmit = (e: any) => {
     if (e.key == 'Enter') {
@@ -35,6 +36,7 @@ const Home: NextPage = () => {
   const setTokenToCookie = (token: string) => document.cookie = `_token=${token}`
 
   const loginHandler = async () => {
+    setLoading(true)
     fetch('/api/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -44,16 +46,19 @@ const Home: NextPage = () => {
         const data = await response.json()
         setTokenToCookie(data.token)
         router.push('/panel')
+        setLoading(false)
       } else {
         toast.error("Incorrect password", {
           theme: "dark"
         })
+        setLoading(false)
       }
     }).catch((error) => {
       console.log(error)
       toast("An error occured", {
         theme: "dark"
       })
+      setLoading(false)
     })
   }
 
@@ -109,12 +114,13 @@ const Home: NextPage = () => {
                 type="password"
                 name="email"
                 id=""
-                className=" bg-[#0F1014] text-slate-100 px-6 py-6 w-full outline-none rounded-xl placeholder:opacity-40"
+                className={`bg-[#0F1014] text-slate-100 px-6 py-6 w-full outline-none ${loading && "opacity-50 bg-slate-900" } rounded-xl placeholder:opacity-40 duration-50 `} 
                 autoComplete="false"
                 placeholder="Login with password "
                 /* eslint-disable  @typescript-eslint/no-explicit-any */
                 onChange={(e: any) => setPassword(e.target.value.trim())}
                 onKeyDown={handleSudmit}
+                disabled={loading}
               />
               <button
                 className="p-6 rounded-xl flex justify-between items-center bg-[#0F1014]  text-sm"
